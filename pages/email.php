@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-11 col-md-12 col-sm-offset-2 col-md-offset-3">
             <form role="form" method="post" action="">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 				<div class="page-hd" style="background-image: url(<?php print $site_url; ?>images/recovery.png)">
 					<div class="bd-c">
 						<h2 class="pre-social"><?php print $lang['change-email']; ?></h2>

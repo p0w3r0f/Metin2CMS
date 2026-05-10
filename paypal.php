@@ -37,9 +37,26 @@
 		$curl_result = curl_exec($ch);
 		$curl_err = curl_error($ch);
 		curl_close($ch);
+
+		// Check if transaction was already processed
+		$stmt = $database->runQuerySqlite("SELECT id FROM paypal_transactions WHERE txn_id = :txn_id");
+		$stmt->bindParam(':txn_id', $data['txn_id'], PDO::PARAM_STR);
+		$stmt->execute();
+		$already_processed = $stmt->fetch();
 				
-		if (strpos($curl_result, "VERIFIED")!==false && strtolower($data['receiver_email']) == strtolower($paypal_email)) {
+		if (strpos($curl_result, "VERIFIED")!==false && strtolower($data['receiver_email']) == strtolower($paypal_email) && !$already_processed) {
 			
+			// Save transaction to prevent replay attacks
+			$now = date('Y-m-d H:i:s');
+			$stmt = $database->runQuerySqlite("INSERT INTO paypal_transactions (txn_id, account_id, amount, currency, date) VALUES (:txn_id, :account_id, :amount, :currency, :date)");
+			$stmt->execute([
+				':txn_id' => $data['txn_id'],
+				':account_id' => $data['custom'],
+				':amount' => $data['payment_amount'],
+				':currency' => $data['payment_currency'],
+				':date' => $now
+			]);
+
 			$jsondataDonate = file_get_contents('include/db/donate.json');
 			$jsondataDonate = json_decode($jsondataDonate, true);
 			

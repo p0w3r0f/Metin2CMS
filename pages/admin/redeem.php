@@ -22,6 +22,7 @@
 	</div>
 	<?php } ?>
 	<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 		<div class="row">
 			<div class="form-group col-md-6">
 				<select class="form-control" name="type" id="inputType">

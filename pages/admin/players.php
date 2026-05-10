@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem;">
 		<form action="" method="POST">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 			<div class="row">
 				<div class="col-lg-9">
 					<input type="text" name="search" class="form-control" placeholder="<?php print $lang['name']; ?> / IP" value="<?php if(isset($search)) print $search; ?>">
@@ -74,6 +75,7 @@
 					<div class="tab-pane active" id="permanent" role="tabpanel">
 						</br>
 						<form method="POST" action="">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 							<input type="hidden" name="accountID" id="accountID" value=""/>
 							<div class="form-group">
 								<label for="reason"><?php print $lang['reason'].' - '.$lang['permanent-ban']; ?></label>
@@ -86,6 +88,7 @@
 					<div class="tab-pane" id="availDt" role="tabpanel">
 						</br>
 						<form method="POST" action="">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 							<input type="hidden" name="accountID" id="accountID" value=""/>
 							<div class="form-group">
 								<label for="reason"><?php print $lang['time']; ?></label>
@@ -134,6 +137,7 @@
             </div>
             <div class="modal-body">
 				<form method="POST" action="">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 					<input type="hidden" name="accountID" id="accountID" value=""/>
 					<input type="hidden" name="unban" id="unban" value=""/>
 					<div class="form-group">

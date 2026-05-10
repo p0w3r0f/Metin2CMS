@@ -1,4 +1,20 @@
 <?php
+	function generateCSRFToken()
+	{
+		if (empty($_SESSION['csrf_token'])) {
+			$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+		}
+		return $_SESSION['csrf_token'];
+	}
+
+	function validateCSRFToken($token)
+	{
+		if (!isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']) {
+			return false;
+		}
+		return true;
+	}
+
 	function redirect($url)
 	{
 		global $database, $site_url;
@@ -37,13 +53,7 @@
 	}
 
 	function generateSocialID($length = 7) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$charactersLength = strlen($characters);
-		$randomString = '';
-		for ($i = 0; $i < $length; $i++) {
-			$randomString .= $characters[rand(0, $charactersLength - 1)];
-		}
-		return $randomString;
+		return bin2hex(random_bytes(ceil($length / 2)));
 	}
 
 	function isValidEmail($email) {

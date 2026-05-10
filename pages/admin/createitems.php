@@ -3,6 +3,7 @@
 ?>
 <div class="container">
     <form action="" method="post" class="form-horizontal">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 
         <div class="form-group">
             <label class="control-label" for="name">

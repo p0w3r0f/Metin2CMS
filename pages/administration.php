@@ -114,6 +114,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="submit" name="change-password" class="btn btn-primary btn-sm btn-block" onclick="return confirm('<?php print $lang['sure_send?']; ?>')" value="<?php print $lang['password']; ?> &raquo;" />
 					</form>
 				</div>
@@ -123,6 +124,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="submit" name="storekeeper-code" class="btn btn-primary btn-sm btn-block" onclick="return confirm('<?php print $lang['sure_send?']; ?>')" value="<?php print $lang['storekeeper']; ?> &raquo;" />
 					</form>
 				</div>
@@ -132,6 +134,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="submit" name="delete-code" class="btn btn-primary btn-sm btn-block" onclick="return confirm('<?php print $lang['sure_send?']; ?>')" value="<?php print $lang['send']; ?> &raquo;" />
 					</form>
 				</div>
@@ -142,6 +145,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="submit" name="delete-account" class="btn btn-danger btn-sm btn-block" onclick="return confirm('<?php print $lang['sure_send?']; ?>')" value="<?php print $lang['delete-account']; ?> &raquo;" />
 					</form>
 				</div>
@@ -151,6 +155,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="submit" name="cancel-delete-account" class="btn btn-warning btn-sm btn-block" value="<?php print $lang['cancel-delete-account']; ?> &raquo;" />
 					</form>
 				</div>

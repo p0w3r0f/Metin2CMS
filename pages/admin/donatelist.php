@@ -20,6 +20,7 @@
 				<td><?php print $donate['type']; ?></td>
 				<td>
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="hidden" value="<?php print $md; ?>" name="md">
 						<input type="hidden" value="<?php print $donate['account_id']; ?>" name="account">
 						<input type="hidden" value="<?php print $donate['id']; ?>" name="id">

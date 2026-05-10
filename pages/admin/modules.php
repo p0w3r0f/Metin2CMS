@@ -41,8 +41,8 @@
 			<div class="card-block">
 				<h4 class="card-title"><?php print $mod['name']; ?></h4>
 				<p class="card-text"><?php print $mod['description']; ?><?php if(is_dir($mod['directory'])) { ?></br><a href="<?php print $site_url.$mod['directory']; ?>"><?php print $site_url.$mod['directory']; ?></a><?php } ?></p>
-				<?php if(is_dir($mod['directory'])) print '<form method="POST" action=""><input type="hidden" value="'.$mod['directory'].'" name="uninstall"><button type="submit" class="btn btn-danger">'.$lang['uninstall'].'</button></form>';
-						else print '<form method="POST" action=""><input type="hidden" value="'.$mod['directory'].'" name="install"><button type="submit" class="btn btn-success">'.$lang['install'].'</button></form>'; ?>
+				<?php if(is_dir($mod['directory'])) print '<form method="POST" action=""><input type="hidden" name="csrf_token" value="'.generateCSRFToken().'"><input type="hidden" value="'.$mod['directory'].'" name="uninstall"><button type="submit" class="btn btn-danger">'.$lang['uninstall'].'</button></form>';
+						else print '<form method="POST" action=""><input type="hidden" name="csrf_token" value="'.generateCSRFToken().'"><input type="hidden" value="'.$mod['directory'].'" name="install"><button type="submit" class="btn btn-success">'.$lang['install'].'</button></form>'; ?>
 			</div>
 		</div>
     </div>

@@ -4,6 +4,7 @@
 				$paginate->add($_POST['title'], $_POST['content']);
 			
 		print '<form method="post" action="">';
+		print '<input type="hidden" name="csrf_token" value="'.generateCSRFToken().'">';
 		print '<p><a class="btn btn-primary" data-toggle="collapse" href="#add" aria-expanded="false" aria-controls="add"><i class="fa fa-plus fa-2" aria-hidden="true"></i> '.$lang['new-article'].'</a></p>';
 		print '<div class="collapse" id="add"><div class="card card-block">';
 		print '<p>'.$lang['title'].':</p>';

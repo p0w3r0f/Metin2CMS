@@ -8,6 +8,7 @@
 	
 	<div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem;">
 		<form action="" method="POST">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 			<div class="row">
 				<div class="col-lg-9">
 					<input type="text" name="search" class="form-control" placeholder="<?php print $lang['name']; ?>" value="<?php if(isset($search)) print htmlentities($search); ?>">

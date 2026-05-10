@@ -10,6 +10,7 @@
 
 <div class="container">
     <form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 		<?php foreach($site_general as $name => $link) if($name!='currency') { ?>
 			<div class="form-group row">
 				<label for="<?php print $name; ?>" class="col-sm-2 col-form-label"><?php if($name=='news') print $lang['news-on-page']; else if($name=='title') print $lang['title']; else print ucfirst($name); ?></label>

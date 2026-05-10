@@ -45,6 +45,7 @@ class paginate
 				<td><?php if($row['type']==1) print $md; else if($row['type']==2) print $jd; else print $item; ?></td>
 				<td><?php print $row['value']; ?></td>
 				<td><form action="" method="POST"><input type="hidden" name="id" value="<?php print $row['id']; ?>"><button type="submit" name="delete" class="btn btn-danger btn-sm"><?php print $delete; ?></button></form></td>
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 			</tr>
                 <?php
 			}

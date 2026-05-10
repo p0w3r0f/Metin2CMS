@@ -68,7 +68,7 @@
 									if($getChars['claimed']==1) echo '<td><button class="btn btn-primary btn-sm disabled">'.$lang['collected'].'</button></td>';
 									else {
 									if($jsondataReferrals['hours']<=$hours && $jsondataReferrals['level']<=$getCharsINFO['level'])
-										echo '<td><form action="" method="post"><input type="hidden" name="id" value="'.$getChars['registered'].'"><input id="submitBtn" type="submit" name="login" value="'.$lang['collect'].'" class="btn btn-primary btn-sm"/></td></form>';
+										echo '<td><form action="" method="post"><input type="hidden" name="csrf_token" value="'.generateCSRFToken().'"><input type="hidden" name="id" value="'.$getChars['registered'].'"><input id="submitBtn" type="submit" name="login" value="'.$lang['collect'].'" class="btn btn-primary btn-sm"/></td></form>';
 									else echo '<td><button class="btn btn-primary btn-sm disabled">'.$lang['not_yet'].'</button></td>';}
 									echo'</tr>';
 									  $x++;

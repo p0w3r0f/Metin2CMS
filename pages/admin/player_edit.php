@@ -10,6 +10,7 @@
 				</div>
 			<?php } ?>
             <form role="form" method="post" action="">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 				<table class="table table-hover" style="background-color: white;">
 					<tbody>
 						<tr>

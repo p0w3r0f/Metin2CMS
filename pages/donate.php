@@ -41,6 +41,7 @@
 					{
 				?>
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="hidden" name="id" value="<?php print $i; ?>">
 						<input type="hidden" name="method" value="<?php print $donate['name']; ?>">
 						<div class="form-group row">
@@ -58,6 +59,7 @@
 					</form>
 				<?php } else { ?>
 					<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<input type="hidden" name="id" value="<?php print $i; ?>">
 						<input type="hidden" name="method" value="<?php print $donate['name']; ?>">
 						<div class="form-group row">

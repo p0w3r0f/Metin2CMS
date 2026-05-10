@@ -16,6 +16,7 @@
 		}
 	} ?>
 	<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 		<div class="form-group row">
 			<div class="col-sm-3">
 				<select class="form-control" name="account">

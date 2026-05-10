@@ -42,6 +42,7 @@
 						  </button>'.$lang['reason'].': '.$login_info[1].'</div>';
 					}
 				?>
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 				<table class="table table-hover">
 					<tbody>
 						<tr>

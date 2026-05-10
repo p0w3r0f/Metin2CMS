@@ -29,6 +29,7 @@
 		<?php } ?>
 			
 		<form action="" method="POST">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 			<div class="input-group">
 				<input type="text" class="form-control form-control-lg" value="" name="code" required>
 				<span class="input-group-btn">

@@ -8,6 +8,7 @@
 			</div>
 		<?php if($jsondataFunctions['active-registrations']==1) { ?>
             <form role="form" method="post" action="">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 				<?php
 					include 'include/functions/register.php';
 					

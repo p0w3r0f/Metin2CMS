@@ -1,6 +1,7 @@
 <div class="container">
 
 	<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 		<div class="form-group">
 			<label for="status"><?php print $lang['status']; ?></label>
 			<select class="form-control" id="status" name="status">

@@ -15,6 +15,7 @@
 		<div class="tab-pane active" id="settings" role="tabpanel">
 			</br>
 			<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 				<div class="form-group row">
 					<label for="active-registrations" class="col-sm-8 col-form-label"><?php print $lang['default-language']; ?></label>
 					<div class="col-sm-4">
@@ -61,6 +62,7 @@
 						<?php } else { ?>
 							<td>
 								<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 									<input type="hidden" name="delete" value="<?php print $key; ?>">
 									<button type="submit" name="submit" class="btn btn-primary btn-sm"><?php print $lang['delete']; ?></button>
 								</form>
@@ -76,6 +78,7 @@
 						<td><?php print $value['name']; ?></td>
 							<td>
 								<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 									<input type="hidden" name="install" value="<?php print $value['code']; ?>">
 									<input type="hidden" name="name" value="<?php print $value['name']; ?>">
 									<button type="submit" name="submit" class="btn btn-primary btn-sm"><?php print $lang['install']; ?></button>

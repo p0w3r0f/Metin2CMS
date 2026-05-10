@@ -54,10 +54,10 @@ class paginate
 				?>
 			<tr>
 				<th scope="row"><?php print $number; ?></th>
-				<td id="<?php print $row['account_id']; ?>"><a data-toggle="tooltip" data-placement="right" title="<?php print 'LVL. '.$row['level']; ?>"><?php print $row['name']; ?></a></td>
-				<td><?php print getAccountName($row['account_id']); ?></td>
-				<td class="level-table"><?php print $row['ip']; ?></td>
-				<td><?php if($availDt && check_availDt($row['account_id'])) print '<a class="text-danger" data-toggle="tooltip" data-html="true" data-placement="right" title="'.getLastBanReason($row['account_id']).'</br>'.get_availDt($row['account_id']).'">availDt</a>'; else if(checkStatus($row['account_id'])) print '<a class="text-success">OK</a>'; else print '<a class="text-danger" data-toggle="tooltip" data-html="true" data-placement="right" title="'.getLastBanReason($row['account_id']).'">BLOCK</a>'; ?></td>
+				<td id="<?php print $row['account_id']; ?>"><a data-toggle="tooltip" data-placement="right" title="<?php print 'LVL. '.htmlspecialchars($row['level']); ?>"><?php print htmlspecialchars($row['name']); ?></a></td>
+				<td><?php print htmlspecialchars(getAccountName($row['account_id'])); ?></td>
+				<td class="level-table"><?php print htmlspecialchars($row['ip']); ?></td>
+				<td><?php if($availDt && check_availDt($row['account_id'])) print '<a class="text-danger" data-toggle="tooltip" data-html="true" data-placement="right" title="'.htmlspecialchars(getLastBanReason($row['account_id'])).'</br>'.htmlspecialchars(get_availDt($row['account_id'])).'">availDt</a>'; else if(checkStatus($row['account_id'])) print '<a class="text-success">OK</a>'; else print '<a class="text-danger" data-toggle="tooltip" data-html="true" data-placement="right" title="'.htmlspecialchars(getLastBanReason($row['account_id'])).'">BLOCK</a>'; ?></td>
 				<td class="exp-table">
 					<?php if(($availDt && check_availDt($row['account_id'])) || !checkStatus($row['account_id'])) { ?>
 					<a data-toggle="modal" data-id="<?php print $row['account_id']; ?>" title="<?php print $unban; ?>" class="open-accountID" href="#unban"><i class="fa fa-check fa-1 text-success" aria-hidden="true"></i></a> 

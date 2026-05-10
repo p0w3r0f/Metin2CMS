@@ -8,6 +8,7 @@
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<form class="form" role="form" method="post" action="<?php print $site_url; ?>users/login" accept-charset="UTF-8" id="login-nav">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 						<div class="form-group">
 							<input type="text" name="username" pattern=".{5,64}" maxlength="64" class="form-control" placeholder="<?php print $lang['user-name-or-email']; ?>" autocomplete="off" <?php if($offline) print 'disabled'; else print 'required'; ?>>
 						</div>

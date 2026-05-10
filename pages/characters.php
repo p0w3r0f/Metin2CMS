@@ -62,6 +62,7 @@
 							<?php if($jsondataFunctions['players-debug']) { ?>
 								<td>
 									<form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 										<input type="hidden" name="debug" value="<?php print $player['id']; ?>">
 										<button type="submit" name="submit" class="btn btn-primary btn-sm"><?php print $lang['debug']; ?></button>
 									</form>

@@ -119,6 +119,16 @@
 		$offline_guilds=getJsonSettings("guilds", "top10backup");
 	}
 
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && $page !== 'api') {
+		if (!isset($_POST['csrf_token']) || !validateCSRFToken($_POST['csrf_token'])) {
+			// For non-ajax requests or when we want to be strict
+			// Exceptions can be made for external callbacks like paypal.php
+			if (basename($_SERVER['PHP_SELF']) !== 'paypal.php') {
+				die('CSRF token validation failed.');
+			}
+		}
+	}
+
 	if(isset($_GET['api']) && isset($_GET['key']) && $_GET['api']=='metin2cms')
 	{
 		$apidata = file_get_contents('include/db/api.json');

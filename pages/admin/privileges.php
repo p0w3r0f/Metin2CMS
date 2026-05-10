@@ -1,5 +1,6 @@
 <div class="container">
     <form action="" method="post">
+				<input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
 		
 	<?php
 		foreach($jsondataPrivileges as $key => $function)
